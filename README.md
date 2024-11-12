@@ -7,26 +7,32 @@ A Flask-based API testing project that provides a clean and modular structure fo
 ```
 api_test/
 ├── app/
-│ ├── **init**.py
-│ ├── api/
-│ │ └── v1/
-│ │ ├── **init**.py
-│ │ ├── system.py # System-related interfaces
-│ │ ├── device.py # Device-related interfaces
-│ │ └── auth.py # Authentication-related interfaces
-│ ├── mqtt/
-│ │ ├── **init**.py
-│ │ └── client.py # MQTT client
-│ └── utils/
-│ ├── **init**.py
-│ ├── auth.py # Authentication utilities
-│ └── test_utils.py # Testing utilities (stress testing, process testing)
+│   ├── __init__.py
+│   ├── api/
+│   │   └── v1/
+│   │       ├── __init__.py
+│   │       ├── platforms/
+│   │       │   ├── __init__.py
+│   │       │   ├── icad/              # ICAD平台
+│   │       │   │   ├── __init__.py
+│   │       │   │   ├── system.py      # 系统模块API
+│   │       │   │   ├── device.py      # 设备模块API
+│   │       │   │   └── io.py          # IO模块API
+│   │       │   └── platform2/         # 其他平台
+│   │       │       ├── __init__.py
+│   │       │       └── ...
+│   │       └── base_client.py         # 基础客户端
+│   └── utils/
+│       ├── __init__.py
+│       └── test_utils.py
 ├── tests/
-│ ├── test_auth.py
-│ ├── test_device.py
-│ └── test_system.py
-├── config.py # Configuration file
-├── run.py
+│   └── platforms/
+│       ├── icad/
+│       │   ├── test_system.py
+│       │   ├── test_device.py
+│       │   └── test_io.py
+│       └── platform2/
+├── config.py
 └── requirements.txt
 ```
 
