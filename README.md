@@ -136,6 +136,10 @@ Run tests using pytest:
 pytest tests/
 ```
 
+```bash
+pytest tests/platforms/icad/test_system.py -v
+```
+
 For stress testing, use the utilities in `app/utils/test_utils.py`.
 
 ## Contributing
